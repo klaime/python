@@ -1,0 +1,121 @@
+<html> <!-- quando eu quero trazer outro exemplo de código digito doc e clico no tab --!>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+
+    <style>
+        #image {
+            width: 600px;
+            opacity: 0.4;
+            border-radius: 60px;
+            cursor: pointer:
+            <!-- padding: 10px; --!>
+             <!-- padding-color: #FF0000; --!>
+             <!-- border: 10px solid; --!>
+             <!-- border-color: #FF0000; --!>
+             <!-- margin-left: 10px; --!>
+            <!--  margin-bottom: 10px; --!>
+            <!--  margin-top: 10px; --!>
+            <!-- margin: top, right, bottom, left (sentido horario)--!>
+
+        }
+
+    </style>
+</head>
+<body onload="autoChange(); autoMove(); autoOpacity()">
+    <!-- <h1>Im woman, Im femine, Im divine</h1> -->
+    <h2>Title h2</h2>
+    <h3>Title h3</h3>
+    <h4>Title h4</h4>
+    <h5>Title h3</h5>
+
+    <h5>Title h3</h5>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dignissimos ducimus eius esse, est excepturi harum laboriosam molestiae nemo, nesciunt, nisi odio porro provident quod repudiandae soluta sunt temporibus vero.</p>
+
+<img id="image" onclick="moveImage()" src="https://softgraf.com/img/img1.jpg" alt="">
+
+<script> // console é sada para fazer teste
+
+    let indImg= 1;
+    let margin= 0;
+    let opacity= 1;
+    let reduce= true
+
+    //console.log('hello world');
+    function countFor(){
+        for (i=0; i<10; i++){
+            console.log(i);
+        }
+    }
+    function countWhile(){
+        let i=0;
+        do{
+            console.log(i);
+            i++;
+        } while (i<10);
+    }
+
+    function changeImage(){
+        let image= document.getElementById('image');
+        //alert(picture)
+        indImg++;
+        if (indImg>7) {
+            indImg= 1;
+        }
+
+        image.src = "https://softgraf.com/img/img" + indImg + ".jpg";
+    }
+    const autoChange= () => {
+        setInterval("changeImage()", 500); //500 é milisegundos
+    }
+    const moveImage= () => {
+        let image= document.getElementById('image');
+        margin += 10;
+        if (margin>window.innerWidth){
+            margin= (window.innerWidth*(-1))
+            }
+        image.style.marginLeft= margin; //qnd coloco .style, consigo utilizar os atributos do CSS
+
+    }
+    const autoMove= () => {
+        setInterval('moveImage()',50);
+    }
+
+    const changeOpacity= () => {
+        let image= document.getElementById('image');
+
+        if (reduce){
+            opacity -= 0.1;
+        }
+        else{
+            opacity += 0.1;
+        }
+
+        if (opacity < 0.1){
+            reduce= false;
+        }
+        else if (opacity >= 1){
+            reduce= true;
+        }
+
+        image.style.opacity = opacity;
+    }
+
+    const autoOpacity= () => {
+        setInterval('changeOpacity()', 100);
+    }
+
+// countWhile()
+
+
+</script>
+<script>
+
+</script>
+
+</body>
+</html>
